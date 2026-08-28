@@ -10,8 +10,8 @@ public class Livro {
     private List<Autor> autores;
     private List<Exemplar> exemplares;
 
-    public Livro(Long id, String isbn, String titulo, Integer anoPublicacao){
-        this.id = id;
+    public Livro( String isbn, String titulo, Integer anoPublicacao){
+        //this.id = id;
         this.isbn = isbn;
         this.titulo = titulo;
         this.anoPublicacao = anoPublicacao;
