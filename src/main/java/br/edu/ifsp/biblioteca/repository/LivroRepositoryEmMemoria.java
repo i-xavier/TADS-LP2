@@ -6,8 +6,8 @@ import java.util.*;
 
 public class LivroRepositoryEmMemoria implements ILivroRepository {
 
-    private final Map<Long, Livro> livros = new HashMap<Long, Livro>();
-    private Long sequenciaId = 0l;
+    private final Map<Long, Livro> livros = new HashMap<>();
+    private Long sequenciaId = 0L;
 
     @Override
     public Livro salvar(Livro livro) {
@@ -72,7 +72,10 @@ public class LivroRepositoryEmMemoria implements ILivroRepository {
         List<Livro> livrosEncontrados = new ArrayList<>();
 
         for (Livro livro : this.livros.values()) {
-            if(livro.getTitulo().contains(titulo)){
+
+            String livroTitulo = livro.getTitulo().toLowerCase();
+
+            if(livroTitulo.contains(titulo.toLowerCase())){
                 livrosEncontrados.add(livro);
             }
         }
