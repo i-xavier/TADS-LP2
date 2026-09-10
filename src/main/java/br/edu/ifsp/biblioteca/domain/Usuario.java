@@ -8,8 +8,7 @@ public class Usuario {
 
     private List<Emprestimo> emprestimo;
 
-    public Usuario(Long id, String nome, String email){
-        this.id = id;
+    public Usuario(String nome, String email){
         this.email = email;
         this.nome = nome;
     }

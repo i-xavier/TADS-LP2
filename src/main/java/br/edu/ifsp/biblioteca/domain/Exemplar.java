@@ -28,7 +28,6 @@ public class Exemplar {
                 "id=" + id +
                 ", codigo='" + codigo + '\'' +
                 ", status=" + status +
-                ", livro=" + livro +
                 '}';
     }
 }
