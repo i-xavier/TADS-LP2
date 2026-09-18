@@ -1,8 +1,13 @@
 package br.edu.ifsp.biblioteca.repository;
 
 import br.edu.ifsp.biblioteca.domain.Livro;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
+
+@Repository
+@Profile("memoria")
 
 public class LivroRepositoryEmMemoria implements ILivroRepository {
 

@@ -1,8 +1,13 @@
 package br.edu.ifsp.biblioteca.repository;
 
 import br.edu.ifsp.biblioteca.domain.Usuario;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
+
+@Repository
+@Profile("memoria")
 
 public class UsuarioRepositoryEmMemoria implements IUsuarioRepository{
 
