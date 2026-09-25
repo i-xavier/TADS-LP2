@@ -14,12 +14,36 @@ public class Exemplar {
         this.status = EStatusExemplar.DISPONIVEL;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getCodigo(){
         return this.codigo;
     }
 
-    public void setCodigo(String codigo){
-        this.codigo = codigo;
+    public EStatusExemplar getStatus(){
+        return this.status;
+    }
+
+    public void emprestar(){
+        if(this.status == EStatusExemplar.EMPRESTADO){
+            throw  new IllegalStateException("Exemplar " + this.codigo + " já está emprestado!");
+        }
+
+        this.status = EStatusExemplar.EMPRESTADO;
+    }
+
+    public void devolver(){
+        this.status = EStatusExemplar.DISPONIVEL;
+    }
+
+    public boolean estaDisponivel(){
+        return this.status == EStatusExemplar.DISPONIVEL;
     }
 
     @Override
