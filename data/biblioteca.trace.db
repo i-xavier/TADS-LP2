@@ -1,0 +1,12 @@
+2026-10-15 21:47:41.444072-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO livro(isbn, titulo [*]ano_publicacao) VALUES (?, ?, ?)"; expected ",, )"; SQL statement:
+INSERT INTO livro(isbn, titulo ano_publicacao) VALUES (?, ?, ?) [42001-232]
+2026-10-15 22:00:34.139537-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO livro(isbn, titulo [*]ano_publicacao) VALUES (?, ?, ?)"; expected ",, )"; SQL statement:
+INSERT INTO livro(isbn, titulo ano_publicacao) VALUES (?, ?, ?) [42001-232]
+2026-10-15 22:03:18.799753-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO livro(isbn, titulo [*]ano_publicacao) VALUES (?, ?, ?)"; expected ",, )"; SQL statement:
+INSERT INTO livro(isbn, titulo ano_publicacao) VALUES (?, ?, ?) [42001-232]
+2026-10-15 22:04:27.884283-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT a.* FROM autor AS a JOIN livro_autor AS la ON la.autor_id = a.idWHERE [*]la.livro_id = ?"; SQL statement:
+SELECT a.* FROM autor AS a JOIN livro_autor AS la ON la.autor_id = a.idWHERE la.livro_id = ? [42000-232]

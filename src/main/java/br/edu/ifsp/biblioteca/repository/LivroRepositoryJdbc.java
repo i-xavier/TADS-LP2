@@ -30,25 +30,31 @@ public class LivroRepositoryJdbc implements ILivroRepository{
         {
             conexao.setAutoCommit(false);
 
-            if(livro.getId() == null){
-                //precisa cadastrar
-                this.inserirLivro(conexao, livro);
-            }else{
-                // precisa atualizar
-                this.atualizarLivro(conexao, livro);
+            try{
+                if(livro.getId() == null){
+                    this.inserirLivro(conexao, livro);
+                }else{
+                    this.atualizarLivro(conexao, livro);
+                }
+
+                this.salvarAutores(conexao, livro);
+                this.salvarExemplares(conexao, livro);
+
+                conexao.commit();
+            }catch(SQLException erro){
+                conexao.rollback();
+                throw erro;
             }
 
-            this.salvarAutores(conexao, livro);
-            this.salvarExemplares(conexao, livro);
-
         }catch(SQLException erro){
+
             throw new IllegalStateException("Falha ao salvar o livro", erro);
         }
         return livro;
     }
 
     private void inserirLivro(Connection conexao, Livro livro) throws SQLException{
-        String sql = "INSERT INTO livro(isbn, titulo ano_publicacao) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO livro(isbn, titulo, ano_publicacao) VALUES (?, ?, ?)";
 
         try(
                 PreparedStatement comando = conexao.prepareStatement(
@@ -176,9 +182,7 @@ public class LivroRepositoryJdbc implements ILivroRepository{
     }
 
     private void carregarAutores(Connection conexao, Livro livro) throws SQLException{
-        String sql = "SELECT a.* FROM autor AS a " +
-                "JOIN livro_autor AS la ON la.autor_id = a.id" +
-                "WHERE la.livro_id = ?";
+        String sql = "SELECT a.* FROM autor AS a JOIN livro_autor AS la ON la.autor_id = a.id WHERE la.livro_id = ?";
 
         try(PreparedStatement comando = conexao.prepareStatement(sql)){
             comando.setLong(1, livro.getId());
